@@ -1,0 +1,136 @@
+<!--<!doctype html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org"-->
+<!--      xmlns:sec="http://www.w3.org/1999/xhtml"-->
+<!--      lang="en">-->
+<!--<head>-->
+
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+<!--          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+
+<!--    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>-->
+
+<!--    <title>Document</title>-->
+<!--</head>-->
+
+<!--<header>-->
+<!--    <h1>User list</h1>-->
+<!--    <p class="login_info"> Logged in as: <span sec:authentication="name"></span>-->
+<!--        <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>-->
+<!--    </p>-->
+<!--    <nav>-->
+<!--        <div>-->
+<!--            <ul>-->
+<!--                <li><a class="menu_button" th:href="@{/startpage}">Home</a></li>-->
+<!--                <li><a class="menu_button" th:href="@{/showallbooks}">Book list</a></li>-->
+<!--                <li><a class="menu_button" th:href="@{/usergui}">User Panel</a></li>-->
+<!--                <li><a th:if="!${#request.userPrincipal}" class="menu_button" th:href="@{/login}">Login</a>-->
+<!--                </li>-->
+<!--                <li><a sec:authorize="isAuthenticated()" class="menu_button" th:href="@{/logout}">Logout</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </nav>-->
+
+<!--</header>-->
+
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <h3>Enter user details</h3>-->
+<!--    <hr>-->
+
+<!--    <p class="h4 mb-4">Add user</p>-->
+
+<!--    <div style="display: inline-block;">-->
+<!--        <a th:href="@{/showuserbooks}"-->
+<!--           class="add_button"-->
+<!--           sec:authorize="hasRole('ROLE_USER')">-->
+<!--            Show your books-->
+<!--        </a>-->
+<!--    </div>-->
+
+<!--    <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">-->
+
+<!--        <input type="text" th:field="*{userId}" class="form-control mb-4 col-4" placeholder="UserId">-->
+<!--        <input type="text" th:field="*{userName}" class="form-control mb-4 col-4" placeholder="UserName">-->
+<!--        <input type="text" th:field="*{password}" class="form-control mb-4 col-4" placeholder="Password">-->
+<!--        <input type="text" th:field="*{email}" class="form-control mb-4 col-4" placeholder="Email">-->
+<!--        <input type="text" th:field="*{enabled}" class="form-control mb-4 col-4" value="true">-->
+<!--        <input type="text" th:field="*{role}" class="form-control mb-4 col-4" value="USER">-->
+<!--        <button type="submit" class="btn btn-info col-2">Save</button>-->
+<!--    </form>-->
+
+<!--    <hr>-->
+<!--    <a th:href="@{/startpage}">Back to Home panel</a>-->
+
+<!--    <hr>-->
+<!--</div>-->
+
+<!--</body>-->
+
+<!--</html>-->
+
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+      lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+
+    <title>Document</title>
+</head>
+
+<header>
+    <h1>User list</h1>
+    <p class="login_info"> Logged in as: <span sec:authentication="name"></span>
+        <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+    </p>
+    <nav>
+        <div>
+            <ul>
+                <li><a class="menu_button" th:href="@{/startpage}">Home</a></li>
+                <li><a class="menu_button" th:href="@{/showallbooks}">Book list</a></li>
+                <li><a class="menu_button" th:href="@{/usergui}">User Panel</a></li>
+                <li><a th:if="!${#request.userPrincipal}" class="menu_button" th:href="@{/login}">Login</a>
+                </li>
+                <li><a sec:authorize="isAuthenticated()" class="menu_button" th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</header>
+
+<body>
+<div class="container">
+    <h3>User Panel</h3>
+    <hr>
+
+    <div style="display: inline-block;">
+        <a th:href="@{/adduser}"
+           class="add_button"
+           sec:authorize="hasRole('ROLE_ADMIN')">
+            Add User
+        </a>
+    </div>
+
+    <div style="display: inline-block;">
+        <a th:href="@{/showuserbooks}"
+           class="add_button"
+           sec:authorize="hasRole('ROLE_USER')">
+            Show your books
+        </a>
+    </div>
+
+</div>
+
+</body>
+
+</html>

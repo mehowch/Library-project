@@ -1,0 +1,77 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+      lang="en">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+
+<title>Book profile</title>
+</head>
+
+<header>
+    <h1>Library start page</h1>
+    <p class="login_info"> Logged in as: <span sec:authentication="name"></span>
+        <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+    </p>
+    <nav>
+        <div>
+            <ul>
+                <li><a class="menu_button" th:href="@{/startpage}">Home</a></li>
+                <li><a class="menu_button" th:href="@{/showallbooks}">Book list</a></li>
+                <li><a class="menu_button" th:href="@{/usergui}">User Panel</a></li>
+                <li><a th:if="!${#request.userPrincipal}" class="menu_button" th:href="@{/login}">Login</a>
+                </li>
+                <li><a sec:authorize="isAuthenticated()" class="menu_button" th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</header>
+
+<body>
+<div class="container">
+    <h3>Book profile</h3>
+    <hr>
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr th:each="tempBook : ${books}">
+
+                <td th:text="${tempBook.getTitle()}"/>
+                <td th:text="${tempBook.getAuthor()}"/>
+                <td th:text="${tempBook.getYear()}"/>
+
+            </tr>
+            </tbody>
+
+        </table>
+
+    <div class="container">
+        <h3>Description</h3>
+
+        <p>
+            Book description...
+        </p>
+    </div>
+
+    <hr>
+    <a th:href="@{/showallbooks}">Back to Book List</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+.login_info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #343a40;
+    font-weight: 700;
+    padding: 10px;
+    background: rgba(220, 220, 220, .7);
+    /*float: left;*/
+}
+
+.search_bar{
+    display: inline-block;
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+}
+
+.navbar{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%;
+
+}
+
+header {
+    background-image: url("books.jpg");
+    background-size: 600px;
+    height: 165px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: gainsboro;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    align-items: center;
+}
+
+nav li {
+    display: inline;
+    float: left;
+    align-items: center;
+
+}
+
+footer {
+    margin-top: 20px;
+    /*position: absolute;*/
+    left: 0;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+footer nav a:link, footer nav a:visited {
+    color: gray;
+    text-decoration: none;
+    display: block;
+    width: 160px;
+    text-align: center;
+    color: #343a40;
+    background-color: gainsboro;
+}
+
+footer nav a:hover {
+    color: black;
+}
+
+div {
+    align-content: center;
+
+}
+
+.menu_button {
+    border: none;
+    background: #343a40;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 20px;
+    margin: 10px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: block;
+    width: 200px;
+    text-align: center;
+}
+
+.menu_button:hover {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: white;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.3s ease 0s;
+    text-align: center;
+}
+
+.add_button {
+    border: none;
+    background: #343a40;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    display: block;
+    width: 200px;
+    text-align: center;
+}
+
+.add_button:hover {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: gainsboro;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.3s ease 0s;
+    text-align: center;
+}
+
+.update_button {
+    border: none;
+    background: darkcyan;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 10px;
+    margin: 0px;
+    border-radius: 3px;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+}
+
+.update_button:hover {
+    color: #343a40 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: gainsboro;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.3s ease 0s;
+    text-align: center;
+}
+
+.delete_button {
+    border: none;
+    background: firebrick;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 10px;
+    margin: 0px;
+    border-radius: 3px;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+}
+
+.delete_button:hover {
+    color: white !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: red;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.3s ease 0s;
+    text-align: center;
+}
