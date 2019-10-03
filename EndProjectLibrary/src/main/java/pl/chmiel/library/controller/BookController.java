@@ -3,10 +3,7 @@ package pl.chmiel.library.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.chmiel.library.component.Book;
 import pl.chmiel.library.repository.BookRepo;
 
@@ -19,29 +16,52 @@ public class BookController {
     @Autowired
     BookRepo bookRepo;
 
+    BookController(BookRepo bookRepo) {
+        this.bookRepo = bookRepo;
+    }
+
     @GetMapping("/bookgui")
     public String showGui(Model model) {
-        model.addAttribute("book", new Book());
+        model.addAttribute("bookadd", new Book());
         return "bookgui";
     }
 
     @GetMapping("/bookprofile")
-    private String bookProfile(@RequestParam Model model, Long id) {
-        model.addAttribute("books", bookRepo.findById(id));
+    private String bookProfile(@RequestParam("bookId") Long theId) {
+        bookRepo.findById(theId);
         return "bookprofile";
     }
 
+//    Book findById
+
+// @GetMapping("/bookprofile/{id}")
+// Optional<Book> findById(@PathVariable Long id) {
+//        return bookRepo.findById(id);
+//        return "bookprofile";
+//    }
+
     @GetMapping("/showallbooks")
     private String showAllBooks(Model model) {
-//        Iterable<Book> allBooks = bookRepo.findAll();
         model.addAttribute("books", bookRepo.findAll());
         return "showbooks";
     }
 
-    @GetMapping("/findbytitleorauthor")
-    private String findByTitleOrAuthor(@RequestParam("books") Model model, String str) {
-        model.addAttribute("books", bookRepo.findByTitleOrAuthor(str));
-        return "showbooks";
+//    @GetMapping("/findall")
+//    private List<Book> showAllBooks() {
+//
+//        List<Book> list = new ArrayList<>();
+//
+//        list.add(new Book("Booke1", "Authore", 1999));
+//        list.add(new Book("Booke2", "Authore2", 19992));
+//
+//        return list;
+//    }
+
+    @GetMapping(value = "/findbytitleorauthor")
+    private String findByTitle(@RequestParam(name = "title") Model model, String title) {
+        model.addAttribute("booksfromsearch", bookRepo.findByTitle(title));
+        return showAllBooks(model);
+//        return "redirect:/showbooks";
     }
 
     @PostMapping("/addbook")

@@ -42,7 +42,7 @@
 
     <p class="h4 mb-4">Add book</p>
 
-    <form action="#" th:action="@{/addbook}" th:object="${book}" method="post">
+    <form action="#" th:action="@{/addbook}" th:object="${bookadd}" method="post">
 
         <!--        Add hidden form field to handle update-->
         <input type="hidden" th:field="*{id}">

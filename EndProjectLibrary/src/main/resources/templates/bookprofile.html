@@ -39,27 +39,32 @@
     <h3>Book profile</h3>
     <hr>
 
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Year</th>
-            </tr>
-            </thead>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+        </tr>
+        </thead>
 
-            <tbody>
+        <tbody>
 
-            <tr th:each="tempBook : ${books}">
+        <!--    TODO: bookProfile method works, now print the info here-->
+                <tr>
+                    <td th:text="${param.bookId}"/>
+                    <td th:text="${param.title}"/>
+                    <td th:text="${param.author}"/>
+                </tr>
 
-                <td th:text="${tempBook.getTitle()}"/>
-                <td th:text="${tempBook.getAuthor()}"/>
-                <td th:text="${tempBook.getYear()}"/>
+<!--        <tr th:each="book : ${bookId}">-->
+<!--            <td th:text="${book.title}">...</td>-->
+<!--            <td th:text="${book.author}">...</td>-->
+<!--            <td th:text="${book.year}">...</td>-->
+<!--        </tr>-->
+        </tbody>
 
-            </tr>
-            </tbody>
-
-        </table>
+    </table>
 
     <div class="container">
         <h3>Description</h3>

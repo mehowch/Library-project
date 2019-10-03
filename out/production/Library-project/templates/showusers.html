@@ -53,10 +53,6 @@
 
         <tbody>
 
-<!--        <tr th:if="${users.empty}">-->
-<!--            <td colspan="2"> No Users Available</td>-->
-<!--        </tr>-->
-
         <tr th:each="user : ${users}">
             <td th:text="${user.getUserId()}"/>
             <td th:text="${user.getUserName()}"/>
@@ -69,8 +65,6 @@
         </tbody>
 
     </table>
-
-    <!--    <a href="javascript:history.back()">Go Back</a>-->
 </div>
 </body>
 </html>

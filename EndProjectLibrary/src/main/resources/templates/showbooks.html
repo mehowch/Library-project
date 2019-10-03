@@ -50,8 +50,8 @@
         </a>
     </div>
     <div class="search_bar">
-        <form th:action="@{/findbytitleorauthor}" th:object="${books}" method="get"> Search for book:
-            <input type="text" placeholder="Search.." name="search">
+        <form action="#" th:action="@{/findbytitleorauthor}" th:object="${booksfromsearch}" method="get"> Search for book:
+            <input type="text" placeholder="Search.." name="title">
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -69,10 +69,14 @@
 
         <tbody>
 
+        <!--        <tr th:if="${books.empty}">-->
+        <!--            <td colspan="2"> No Books Available</td>-->
+        <!--        </tr>-->
+
         <tr th:each="tempBook : ${books}">
-            <td><a th:href="@{/bookprofile(bookId=${tempBook.id})}" th:text="${tempBook.getTitle()}"/></td>
-            <td th:text="${tempBook.getAuthor()}"/>
-            <td th:text="${tempBook.getYear()}"/>
+            <td><a th:href="@{/bookprofile(bookId=${tempBook.id})}" th:text="${tempBook.title}"/></td>
+            <td th:text="${tempBook.author}"/>
+            <td th:text="${tempBook.year}"/>
 
             <div>
 
@@ -93,18 +97,18 @@
                     </div>
 
                     <div sec:authorize="hasRole('ROLE_USER')">
-                    <a th:href="@{/borrowbook(bookId=${tempBook.id})}"
-                       class="update_button">
-                        Borrow
-                    </a>
-                </div>
+                        <a th:href="@{/borrowbook(bookId=${tempBook.id})}"
+                           class="update_button">
+                            Borrow
+                        </a>
+                    </div>
 
-<!--                    <div sec:authorize="hasRole('ROLE_USER')">-->
-<!--                        <a th:href="@{/returnbook(bookId=${tempBook.id})}"-->
-<!--                           class="delete_button">-->
-<!--                            Return-->
-<!--                        </a>-->
-<!--                    </div>-->
+                    <!--                    <div sec:authorize="hasRole('ROLE_USER')">-->
+                    <!--                        <a th:href="@{/returnbook(bookId=${tempBook.id})}"-->
+                    <!--                           class="delete_button">-->
+                    <!--                            Return-->
+                    <!--                        </a>-->
+                    <!--                    </div>-->
                 </td>
             </div>
 

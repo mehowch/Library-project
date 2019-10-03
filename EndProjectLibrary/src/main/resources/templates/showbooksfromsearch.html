@@ -50,8 +50,8 @@
         </a>
     </div>
     <div class="search_bar">
-        <form th:action="@{/findbytitleorauthor}" th:object="${str}" method="get"> Search for book:
-            <input type="text" placeholder="Search.." name="search">
+        <form th:action="@{/findbytitleorauthor}" th:object="${book}" method="get"> Search for book:
+            <input type="text" placeholder="Search.." name="search"/>
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -69,23 +69,23 @@
 
         <tbody>
 
-        <tr th:each="tempBook : ${books}">
-            <td><a th:href="@{/bookprofile(bookId=${tempBook.id})}" th:text="${tempBook.getTitle()}"/></td>
-            <td th:text="${tempBook.getAuthor()}"/>
-            <td th:text="${tempBook.getYear()}"/>
+        <tr th:each="tempBook : ${booksfromsearch}">
+            <td><a th:href="@{/bookprofile(bookId=${booksfromsearch.id})}" th:text="${booksfromsearch.title}"/></td>
+            <td th:text="${booksfromsearch.author}"/>
+            <td th:text="${booksfromsearch.year}"/>
 
             <div>
 
                 <td>
                     <div sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a th:href="@{/updatebook(bookId=${tempBook.id})}"
+                        <a th:href="@{/updatebook(bookId=${booksfromsearch.id})}"
                            class="update_button">
                             Update
                         </a>
                     </div>
 
                     <div sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a th:href="@{/deletebook(bookId=${tempBook.id})}"
+                        <a th:href="@{/deletebook(bookId=${booksfromsearch.id})}"
                            class="delete_button"
                            onclick="if (!(confirm('Are you sure you want to delete this book?'))) return false ">
                             Delete
@@ -93,7 +93,7 @@
                     </div>
 
                     <div sec:authorize="hasRole('ROLE_USER')">
-                    <a th:href="@{/borrowbook(bookId=${tempBook.id})}"
+                    <a th:href="@{/borrowbook(bookId=${booksfromsearch.id})}"
                        class="update_button">
                         Borrow
                     </a>
