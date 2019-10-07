@@ -50,8 +50,9 @@
         </a>
     </div>
     <div class="search_bar">
-        <form action="#" th:action="@{/findbytitleorauthor}" th:object="${booksfromsearch}" method="get"> Search for book:
-            <input type="text" placeholder="Search.." name="title">
+        <form action="#" th:action="@{/findBook}" th:object="${books}" method="get"> Search for book:
+            <input type="text" placeholder="Search.." name="param">
+
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -69,9 +70,9 @@
 
         <tbody>
 
-        <!--        <tr th:if="${books.empty}">-->
-        <!--            <td colspan="2"> No Books Available</td>-->
-        <!--        </tr>-->
+        <tr th:if="${books.empty}">
+            <td colspan="4"> No Books Found.</td>
+        </tr>
 
         <tr th:each="tempBook : ${books}">
             <td><a th:href="@{/bookprofile(bookId=${tempBook.id})}" th:text="${tempBook.title}"/></td>

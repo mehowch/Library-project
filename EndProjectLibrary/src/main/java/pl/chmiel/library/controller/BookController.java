@@ -10,7 +10,6 @@ import pl.chmiel.library.repository.BookRepo;
 import java.util.Optional;
 
 @Controller
-//@RequestMapping("/gui")
 public class BookController {
 
     @Autowired
@@ -21,19 +20,6 @@ public class BookController {
         model.addAttribute("bookadd", new Book());
         return "bookgui";
     }
-
-//    @GetMapping("/bookprofile")
-//    private String bookProfile(@RequestParam("bookId") Long theId) {
-//        bookRepo.findById(theId);
-//        return "bookprofile";
-//    }
-
-//    @GetMapping("/bookprofile")
-//    private String bookProfile(@RequestParam("bookId") Long theId) {
-//        Optional<Book> bookInfo = bookRepo.findById(theId);
-//        System.out.println(bookInfo.toString());
-//        return "/bookprofile";
-//    }
 
     @GetMapping("/bookprofile")
     private String bookProfile(@ModelAttribute("bookId") Book book, Model model, Long theId) {
@@ -46,25 +32,17 @@ public class BookController {
     @GetMapping("/showallbooks")
     private String showAllBooks(Model model) {
         model.addAttribute("books", bookRepo.findAll());
-        return "showbooks";
+        return "/showbooks";
     }
 
-//    @GetMapping("/findall")
-//    private List<Book> showAllBooks() {
-//
-//        List<Book> list = new ArrayList<>();
-//
-//        list.add(new Book("Booke1", "Authore", 1999));
-//        list.add(new Book("Booke2", "Authore2", 19992));
-//
-//        return list;
-//    }
-
-    @GetMapping(value = "/findbytitleorauthor")
-    private String findByTitle(@RequestParam(name = "title") Model model, String title) {
-        model.addAttribute("booksfromsearch", bookRepo.findByTitle(title));
-        return showAllBooks(model);
-//        return "redirect:/showbooks";
+    @GetMapping("/findBook")
+    private String findBook(@ModelAttribute("books") Book book, Model model, String param) {
+        bookRepo.findBook(param);
+        model.addAttribute("books", bookRepo.findBook(param));
+        if (param == "") {
+            return "redirect:/showallbooks";
+        }
+        return "/showbooks";
     }
 
     @PostMapping("/addbook")

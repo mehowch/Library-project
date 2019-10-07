@@ -6,16 +6,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pl.chmiel.library.component.Book;
 
-import java.util.List;
-
 @Repository
 public interface BookRepo extends CrudRepository<Book, Long> {
 
-    @Query("SELECT a FROM Book a WHERE a.title = :title")
-    Book findByTitle(@Param("title") String title);
-
-
-//    @Query("SELECT a FROM Book a WHERE a.title = ?1")
-//    List<Book> findByTitle(String title);
+    @Query("SELECT a FROM Book a WHERE a.title = :param OR a.author = :param OR a.year = :param")
+    Iterable<Book> findBook(@Param("param") String param);
 
 }
