@@ -16,29 +16,32 @@ public class BookController {
     @Autowired
     BookRepo bookRepo;
 
-    BookController(BookRepo bookRepo) {
-        this.bookRepo = bookRepo;
-    }
-
     @GetMapping("/bookgui")
     public String showGui(Model model) {
         model.addAttribute("bookadd", new Book());
         return "bookgui";
     }
 
-    @GetMapping("/bookprofile")
-    private String bookProfile(@RequestParam("bookId") Long theId) {
-        bookRepo.findById(theId);
-        return "bookprofile";
-    }
-
-//    Book findById
-
-// @GetMapping("/bookprofile/{id}")
-// Optional<Book> findById(@PathVariable Long id) {
-//        return bookRepo.findById(id);
+//    @GetMapping("/bookprofile")
+//    private String bookProfile(@RequestParam("bookId") Long theId) {
+//        bookRepo.findById(theId);
 //        return "bookprofile";
 //    }
+
+//    @GetMapping("/bookprofile")
+//    private String bookProfile(@RequestParam("bookId") Long theId) {
+//        Optional<Book> bookInfo = bookRepo.findById(theId);
+//        System.out.println(bookInfo.toString());
+//        return "/bookprofile";
+//    }
+
+    @GetMapping("/bookprofile")
+    private String bookProfile(@ModelAttribute("bookId") Book book, Model model, Long theId) {
+        bookRepo.findById(theId = 1l);
+        model.addAttribute("title", book.getTitle());
+        return "/bookprofile";
+    }
+
 
     @GetMapping("/showallbooks")
     private String showAllBooks(Model model) {

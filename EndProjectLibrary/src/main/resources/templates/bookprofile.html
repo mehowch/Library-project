@@ -51,17 +51,19 @@
         <tbody>
 
         <!--    TODO: bookProfile method works, now print the info here-->
-                <tr>
-                    <td th:text="${param.bookId}"/>
-                    <td th:text="${param.title}"/>
-                    <td th:text="${param.author}"/>
-                </tr>
+                        <tr>
+                            <td th:text="${bookId.title}"/>
+                            <td th:text="${bookId.author}"/>
+                            <td th:text="${bookId.year}"/>
+                        </tr>
 
-<!--        <tr th:each="book : ${bookId}">-->
-<!--            <td th:text="${book.title}">...</td>-->
-<!--            <td th:text="${book.author}">...</td>-->
-<!--            <td th:text="${book.year}">...</td>-->
-<!--        </tr>-->
+        <!--        <tr th:each="book : ${bookId}">-->
+        <!--            <td th:text="${book.title}">...</td>-->
+        <!--            <td th:text="${book.author}">...</td>-->
+        <!--            <td th:text="${book.year}">...</td>-->
+        <!--        </tr>-->
+
+
         </tbody>
 
     </table>
