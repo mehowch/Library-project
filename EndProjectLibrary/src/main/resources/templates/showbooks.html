@@ -52,7 +52,6 @@
     <div class="search_bar">
         <form action="#" th:action="@{/findBook}" th:object="${books}" method="get"> Search for book:
             <input type="text" placeholder="Search.." name="param">
-
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -82,34 +81,30 @@
             <div>
 
                 <td>
-                    <div sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a th:href="@{/updatebook(bookId=${tempBook.id})}"
-                           class="update_button">
-                            Update
-                        </a>
+                    <div>
+                        <div style="float:left; margin-right:5px;" sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a th:href="@{/updatebook(bookId=${tempBook.id})}"
+                               class="update_button">
+                                Update
+                            </a>
+                        </div>
+
+                        <div style="float:left; margin-right:5px;" sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a th:href="@{/deletebook(bookId=${tempBook.id})}"
+                               class="delete_button"
+                               onclick="if (!(confirm('Are you sure you want to delete this book?'))) return false ">
+                                Delete
+                            </a>
+                        </div>
+
+                        <div style="float:left; margin-right:5px;" sec:authorize="hasRole('ROLE_USER')">
+                            <a th:href="@{/borrowbook(bookId=${tempBook.id})}"
+                               class="update_button">
+                                Borrow
+                            </a>
+                        </div>
                     </div>
 
-                    <div sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a th:href="@{/deletebook(bookId=${tempBook.id})}"
-                           class="delete_button"
-                           onclick="if (!(confirm('Are you sure you want to delete this book?'))) return false ">
-                            Delete
-                        </a>
-                    </div>
-
-                    <div sec:authorize="hasRole('ROLE_USER')">
-                        <a th:href="@{/borrowbook(bookId=${tempBook.id})}"
-                           class="update_button">
-                            Borrow
-                        </a>
-                    </div>
-
-                    <!--                    <div sec:authorize="hasRole('ROLE_USER')">-->
-                    <!--                        <a th:href="@{/returnbook(bookId=${tempBook.id})}"-->
-                    <!--                           class="delete_button">-->
-                    <!--                            Return-->
-                    <!--                        </a>-->
-                    <!--                    </div>-->
                 </td>
             </div>
 

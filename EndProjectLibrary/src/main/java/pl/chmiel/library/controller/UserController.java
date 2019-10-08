@@ -66,6 +66,7 @@ public class UserController {
         }
         return "redirect:/showallbooks";
     }
+
     @GetMapping("/returnbook")
     public String returnBook(@RequestParam("bookId") Long theId) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -80,12 +81,23 @@ public class UserController {
         }
         return "redirect:/showuserbooks";
     }
+
     @GetMapping("/showuserbooks")
     private String showuserbooks(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
 
-        model.addAttribute("userbooks", userRepo.findByUserName(name).getBookSet());
+        model.addAttribute("books", userRepo.findByUserName(name).getBookSet());
         return "showuserbooks";
+    }
+
+    @GetMapping("/findUserBooks")
+    private String findBook(@ModelAttribute("books") Book book, Model model, String param) {
+        userRepo.findBook(param);
+        model.addAttribute("books", userRepo.findBook(param));
+        if (param == "") {
+            return "redirect:/showuserbooks";
+        }
+        return "/showuserbooks";
     }
 }
