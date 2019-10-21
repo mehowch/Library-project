@@ -35,6 +35,7 @@
 </header>
 
 <body>
+
 <div class="container">
     <h3>Book profile</h3>
     <hr>
@@ -52,12 +53,19 @@
             <td th:text="${bookId.title}"/>
             <td th:text="${bookId.author}"/>
             <td th:text="${bookId.year}"/>
+
         </tr>
         </tbody>
     </table>
 
     <div class="container">
         <h3>Description</h3>
+
+<!--        TODO: add images of books-->
+
+<!--        <img th:src="@{/images/king2.jpg}" alt="King book">-->
+<!--        <img src="../static/images/king2.jpg" width="1000" th:src="@{images/king2.jpg}" alt="King book">-->
+<!--        <img src="/images/king2.jpg" alt="King book">-->
 
         <p>
             Book description...

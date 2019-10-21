@@ -1,6 +1,9 @@
 INSERT INTO users VALUES (1, 'priya@gmail.com', true, '$2a$04$CO93CT2ObgMiSnMAWwoBkeFObJlMYi/wzzOnPlsTP44r7qVq0Jln2', 'ROLE_USER', 'priya');
 INSERT INTO users VALUES (2, 'naveen@gmail.com', true, '$2a$04$j3JpPUp6CTAe.kMWmdRNC.Wie58xDNPfcYz0DBJxWkucJ6ekJuiJm', 'ROLE_ADMIN', 'naveen');
 
+
+# TODO: add images of books to DB
+# INSERT INTO book VALUES (2, 'King', 'static/css/king2.jpg', 'Horror', 1111);
 INSERT INTO book VALUES (1, 'King', 'Horror', 1111);
 INSERT INTO book VALUES (2, 'King', 'Novel', 1111);
 INSERT INTO book VALUES (3, 'Rowling', 'Novel', 2222);

@@ -10,12 +10,11 @@ public class EndProjectLibraryApplication {
         SpringApplication.run(EndProjectLibraryApplication.class, args);
     }
 
-    //TODO: wybor ksiazek, usowanie uzytkownika
+    // TODO: fix update book method
+    // TODO: limit the number of books a user can borrow at once
+    // TODO: show how many borrowed books a given user has
 
-    //TODO: przypisanie ile i jakie ksiazki posiada dany user (<=5)
-
-    //Dodano Swagger2, Dokumentacja dostępna pod adresem: http://localhost:8080/swagger-ui.html
-
+    // Dodano Swagger2, Dokumentacja dostępna pod adresem: http://localhost:8080/swagger-ui.html
 
 
 }

@@ -42,14 +42,6 @@
     <h3>Your book list</h3>
     <hr>
 
-
-<!--    <div class="search_bar">-->
-<!--        <form th:action="@{/findbytitleorauthor}" th:object="${books}" method="get"> Search for book:-->
-<!--            <input type="text" placeholder="Search.." name="search">-->
-<!--            <button type="submit">Submit</button>-->
-<!--        </form>-->
-<!--    </div>-->
-
     <div class="search_bar">
         <form action="#" th:action="@{/findUserBooks}" th:object="${books}" method="get"> Search for book:
             <input type="text" placeholder="Search.." name="param">
