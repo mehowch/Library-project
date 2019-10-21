@@ -40,7 +40,7 @@ Application provides two user roles:
 <li>User - borrows books, returns books</li>
 </ul>
 
-Presentation layer created with help of Thymeleaf allows user to access user gui and easly search for books to borrow. User may access User panel and see all currently borrowed books.
+Presentation layer created with help of Thymeleaf allows user to access user gui and easily search for books to borrow. User may access User panel and see all currently borrowed books.
 
 Endpoints:
 <ul>
@@ -50,6 +50,6 @@ Endpoints:
 
 
 <u>Future development of the project:</u>
-TODO: Update Book, Search Book, Book Profile, Remove User, Add ability to borrow max 5 books at once.
+TODO: Update Book, Add images of books, Remove User, Add ability to borrow max 5 books at once.
 
 
