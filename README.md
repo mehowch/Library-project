@@ -50,6 +50,6 @@ Endpoints:
 
 
 <u>Future development of the project:</u>
-TODO: Update Book, Search Book, Book Profile, Remove User, Add ability to borrow max 5 books at once.
+TODO: Update Book, Add images of book covers to db, Remove User, Add ability to borrow max 5 books at once.
 
 
