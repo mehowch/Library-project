@@ -1,11 +1,11 @@
-package pl.chmiel.library.controller;
+package main.java.pl.chmiel.library.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.chmiel.library.component.Book;
-import pl.chmiel.library.repository.BookRepo;
+import main.java.pl.chmiel.library.repository.BookRepo;
 
 import java.util.Optional;
 

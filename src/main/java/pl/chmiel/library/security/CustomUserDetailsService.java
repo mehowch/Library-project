@@ -1,11 +1,11 @@
-package pl.chmiel.library.security;
+package main.java.pl.chmiel.library.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.chmiel.library.repository.UserRepo;
+import main.java.pl.chmiel.library.repository.UserRepo;
 
 
 @Service

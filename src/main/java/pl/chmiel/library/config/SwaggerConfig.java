@@ -1,4 +1,4 @@
-package pl.chmiel.library.config;
+package main.java.pl.chmiel.library.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

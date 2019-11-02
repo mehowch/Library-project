@@ -1,4 +1,4 @@
-package pl.chmiel.library.component;
+package main.java.pl.chmiel.library.component;
 
 import javax.persistence.*;
 import java.util.HashSet;
