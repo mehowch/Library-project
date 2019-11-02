@@ -1,4 +1,4 @@
-package pl.chmiel.library.repository;
+package main.java.pl.chmiel.library.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

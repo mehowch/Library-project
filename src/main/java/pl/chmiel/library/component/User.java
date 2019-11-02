@@ -1,4 +1,4 @@
-package pl.chmiel.library.component;
+package main.java.pl.chmiel.library.component;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,4 +1,4 @@
-package pl.chmiel.library.controller;
+package main.java.pl.chmiel.library.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.chmiel.library.component.Book;
 import pl.chmiel.library.component.User;
-import pl.chmiel.library.repository.BookRepo;
-import pl.chmiel.library.repository.UserRepo;
+import main.java.pl.chmiel.library.repository.BookRepo;
+import main.java.pl.chmiel.library.repository.UserRepo;
 
 @Controller
 //@RequestMapping("/gui")

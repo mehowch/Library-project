@@ -1,4 +1,4 @@
-package pl.chmiel.library;
+package java.pl.chmiel.library;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

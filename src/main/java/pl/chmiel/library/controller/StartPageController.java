@@ -1,4 +1,4 @@
-package pl.chmiel.library.controller;
+package main.java.pl.chmiel.library.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

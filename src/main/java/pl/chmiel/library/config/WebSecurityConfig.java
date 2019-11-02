@@ -1,4 +1,4 @@
-package pl.chmiel.library.config;
+package main.java.pl.chmiel.library.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import pl.chmiel.library.security.CustomUserDetailsService;
+import main.java.pl.chmiel.library.security.CustomUserDetailsService;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
